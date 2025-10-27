@@ -1,6 +1,4 @@
 
-
-
 div.capa-livro{
     width: 80px;
     height: 120px;
@@ -8,7 +6,7 @@ div.capa-livro{
     align-items: center;
     justify-content: center;
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(119, 119, 119, 0.582), 0 6px 20px 0 rgba(107, 107, 107, 0.637);
 }
 
 img{

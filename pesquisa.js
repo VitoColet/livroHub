@@ -4,8 +4,9 @@ const section_resultados = document.getElementById("resultados");
 const campo_pesquisa = document.getElementById("pesquisa-livro");
 const url = "https://openlibrary.org/search.json";
 
+
 botao_pesquisa.addEventListener("click", function(){
-    section_resultados.innerHTML = "";
+    section_resultados.innerHTML = "<hr>";
     pesquisar_livros();
 });
 
@@ -30,6 +31,7 @@ function mostrar_livros(array_livros){
                     <a href="sobre.html"><img src="${url_imagem}"/></a>
                 </div>
             </div>
+            <hr>
             <br>
             `
 
