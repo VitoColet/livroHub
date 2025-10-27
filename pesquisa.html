@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquise o Livro</title>
+    <link rel="stylesheet" href="pesquisa.css">
 </head>
 <body>
     <header>
-        <input type="text" name="pesquisa-livro" id="pesquisa-livro">
+        <input type="text" name="pesquisa-livro" id="pesquisa-livro" required placeholder="Pesquise Aqui">
         <button id="botao-pesquisa">Pesquisar</button>
+        <label for="opcao-pesquisa"></label>
+        <select name="opcao-pesquisa" id="opcao-pesquisa">
+            <option value="titulo">Título</option>
+            <option value="autor">Autor</option>
+            <option value="geral">Geral</option>
+        </select>
     </header>
     <main>
         <section id="resultados">
