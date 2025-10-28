@@ -6,36 +6,38 @@ const url = "https://openlibrary.org/search.json";
 
 
 botao_pesquisa.addEventListener("click", function(){
-    section_resultados.innerHTML = "<hr>";
+    section_resultados.innerHTML = "";
     pesquisar_livros();
 });
 
 function mostrar_livros(array_livros){
+    let img_number=0;
      array_livros.forEach(livro => {
         let url_imagem = '';    
-        
+
         console.log(livro.cover_i);
         if (livro.cover_i === undefined)
-                url_imagem = "imagem-gerenica.jpg"
+                url_imagem = "./resources/imagem-gerenica.jpg"
             else
                 url_imagem = `https://covers.openlibrary.org/b/olid/${livro.cover_edition_key}-M.jpg`
             
             
             section_resultados.innerHTML += `
-            <div> 
-                <p>${livro.title}</p>
-                <p>${livro.author_name}</p>
-                <p>${livro.first_publish_year}</p>
-                <p>${livro.cover_i}</p>
-                <div class="capa-livro">
-                    <a href="sobre.html"><img src="${url_imagem}"/></a>
+            <div class="book-item"> 
+                <img src="${url_imagem}" class="book_item_image ${img_number}"/>
+                <div class="book_item_info">
+                    <p>${livro.title}</p>
+                    <p>Por: ${livro.author_name}</p>
+                    <p>${livro.first_publish_year}</p>
                 </div>
             </div>
             <hr>
-            <br>
             `
+            
+            img_number;
 
             });
+
 }
 
 async function pesquisar_livro_titulo(){
