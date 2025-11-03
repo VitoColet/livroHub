@@ -4,17 +4,12 @@
 
 }
 
-*{
-    font-family: "Special Gothic", "Verdana";
+*{ 
+    font-family: "Special Gothic","Verdana";
     margin: 0;
     padding: 0;
 }
 
-html{
-    font-size: 14pt;
-    margin-left: 250px;
-    margin-right: 250px;
-}
 
 main{
 
@@ -22,21 +17,37 @@ main{
 
 }
 
+hr{
+    border: .05em solid rgba(252, 228, 214, 0.483);
+    border-radius: 1em;
+}
+
 section#container-pesquisa{
     display: flex;
     justify-content: center;
-    gap: 2px;
-    background-color: rgba(255, 228, 210, 0.671);
-    border: 1px solid black;
+    flex-wrap: wrap;
+    background-color: rgb(255, 247, 239);
+    border: 1px solid rgba(215, 184, 163, 0.438);
+    border-radius: 0.25em;
+    margin: 0 0 1em 0;
+    padding: 5px;
 }
 
 section#container-pesquisa input, button, select{
     background-color: rgb(255, 241, 232);
     height: 30px;
     margin: 5px 0px 5px 0px;
-    border: 1px solid rgba(201, 170, 150, 0.438);
+    border: 1px solid rgba(215, 184, 163, 0.438);
     border-radius: 3px;
+    
+}
 
+#container-pesquisa button, select, input{
+    transform: 150ms ease;
+}
+
+#container-pesquisa button:hover, select:hover{
+    background-color: rgb(252, 228, 214);
 }
 
 #pesquisa-livro{
@@ -48,26 +59,40 @@ section#container-pesquisa input, button, select{
 }
 
 .book_item_image{
-    opacity: 0.85;
+    transition: 100ms ease;
+    box-shadow: 5px 5px 20px rgba(199, 187, 180, 0.697);
 }
 
 .book_item_image:hover{
     cursor: pointer;
-    opacity: 1;
+    scale: 1.03;
 }
 
 img{
-    width: 80px;
-    height: 120px;
+    width: 100px;
+    height: 140px;
 }
 
 div.book-item{
     display: flex;
     align-items: start;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 0.9em;
 }
 
 div.book-item p{
-    list-style-type: none;
-    gap: 2em;
     
+    margin-left: .5em;
+    
+}
+
+div.book-item p:first-child{
+    font-size: 1.2em;
+}
+
+#resultados{
+
+    margin: 0 30% 0 30%
+
 }

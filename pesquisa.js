@@ -25,7 +25,7 @@ function mostrar_livros(array_livros){
                 <p id="key${item_number}" hidden>${livro.key}</p>
                 <img src="${url_imagem}" class="book_item_image" data-index="${item_number}"/>
                 <div class="book_item_info">
-                    <p>${livro.title}</p>
+                    <p>${livro.title}</h2>
                     <p>Por: ${livro.author_name}</p>
                     <p>${livro.first_publish_year}</p>
                 </div>
