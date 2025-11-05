@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Special+Gothic:wght@400..700&display=swap');
 
 :root{
-
+    --background-color: rgb(255, 247, 239);
+    --cor-linha: rgba(252, 228, 214, 0.483);
+    --cor-borda: rgba(215, 184, 163, 0.438);
+    --cor-navbar: rgb(255, 241, 232);
+    --cor-botao-hover: rgb(252, 228, 214);
 }
 
 *{ 
@@ -18,26 +23,66 @@ main{
 }
 
 hr{
-    border: .05em solid rgba(252, 228, 214, 0.483);
+    border: .05em solid var(--cor-linha);
     border-radius: 1em;
 }
 
-section#container-pesquisa{
+#placeholderTitulo{
+    font-size: 1.5em;
+    font-family: "EB Garamond";
+    margin-right: 1em;
+    border: 1px solid var(--cor-borda);
+    padding: .1em;
+}
+
+.container_nav{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    background-color: rgb(255, 247, 239);
-    border: 1px solid rgba(215, 184, 163, 0.438);
+    background-color: var(--background-color);
+    border: 1px solid var(--cor-borda);
     border-radius: 0.25em;
     margin: 0 0 1em 0;
     padding: 5px;
 }
 
+li {
+    list-style-type: none;
+}
+
+.nav_bar_elements{
+    margin-right: auto;
+}
+
+.nav_bar_elements ul {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.nav_bar_elements li, a {
+    text-decoration: none;
+    color: black;
+}
+.nav_bar_elements a:hover {
+    text-decoration: underline;
+}
+
+.book_item_buttons{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    align-self: center;
+}
+
+.book_item_buttons button:hover{
+    background-color: var(--cor-botao-hover);
+}
+
 section#container-pesquisa input, button, select{
-    background-color: rgb(255, 241, 232);
+    background-color: var(--cor-navbar);
     height: 30px;
     margin: 5px 0px 5px 0px;
-    border: 1px solid rgba(215, 184, 163, 0.438);
+    border: 1px solid var(--cor-borda);
     border-radius: 3px;
     
 }
@@ -47,7 +92,7 @@ section#container-pesquisa input, button, select{
 }
 
 #container-pesquisa button:hover, select:hover{
-    background-color: rgb(252, 228, 214);
+    background-color: var(--cor-botao-hover);
 }
 
 #pesquisa-livro{

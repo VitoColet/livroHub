@@ -29,6 +29,10 @@ function mostrar_livros(array_livros){
                     <p>Por: ${livro.author_name}</p>
                     <p>${livro.first_publish_year}</p>
                 </div>
+                <div class="book_item_buttons">
+                    <button >Adicionar aos já lidos</button>
+                    <button onclick="adicionar_para_ler('${livro.key}')">Adicionar aos não lidos</button>
+                </div>
             </div>
             <hr>
             `
@@ -91,4 +95,29 @@ function pesquisar_livros(){
         alert("Nada foi inserido no campo de pesquisa.");
     }
 
+}
+
+async function adicionar_para_ler(keyLivro){
+    let livroEscolhido;
+
+    await fetch(`https://openlibrary.org${keyLivro}.json`)
+        .then(response => response.json())
+        .then(response => livroEscolhido = response);
+
+        console.log(livroEscolhido);
+        console.log(livroEscolhido.title);
+
+    await fetch(`http://localhost:8123/livros`, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify({"keyLivro" : "1",
+ "titulo" : "Metamorfoses",
+ "autor": "Ovidio",
+ "editora": "Penguin",
+ "anoLancamento": 2023,
+  "idCapa" : "MT1",
+  "apiOrigem" : "PBL"})
+    })
 }
