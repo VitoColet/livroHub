@@ -1,21 +1,20 @@
 
-const url = "https://openlibrary.org/books/"
+const url = "https://openlibrary.org/books/";
+const urlCover = "https://covers.openlibrary.org/b/id/";
+const container = document.querySelector("div.container");
 
 // https://covers.openlibrary.org/b/id/12547191-L.jpg
 // response.authors[0].author.key
 
 async function teste() {
-    let book_key = localStorage.getItem("livro_key");
+    let livro = localStorage.getItem("livro_escolhido");
+    livro = JSON.parse(livro);
+    console.log(livro)
+    container.insertAdjacentHTML("afterbegin", `
+        <h1>${livro.title}</h1>
+        <img src="${urlCover}${livro.cover_i}-L.jpg">
     
-    await fetch(`https://openlibrary.org/works/${book_key}.json`)
-        .then(response => response.json())
-        .then(response => {
-            console.log(response);
-            document.body.innerHTML = `
-            <h1>${response.title}</h1>
-            <img src="https://covers.openlibrary.org/b/id/${response.covers}-L.jpg">
-            `
-        });
+    `)
 }
 
 teste();

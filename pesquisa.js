@@ -3,7 +3,7 @@ const opcao_pesquisa = document.getElementById("opcao-pesquisa");
 const section_resultados = document.getElementById("resultados");
 const campo_pesquisa = document.getElementById("pesquisa-livro");
 const url = "https://openlibrary.org/search.json";
-
+let todos_livros = [];
 
 botao_pesquisa.addEventListener("click", function(){
     pesquisar_livros();
@@ -29,10 +29,6 @@ function mostrar_livros(array_livros){
                     <p>Por: ${livro.author_name}</p>
                     <p>${livro.first_publish_year}</p>
                 </div>
-                <div class="book_item_buttons">
-                    <button >Adicionar aos já lidos</button>
-                    <button onclick="adicionar_para_ler('${livro.key}')">Adicionar aos não lidos</button>
-                </div>
             </div>
             <hr>
             `
@@ -50,9 +46,8 @@ function adicionar_event_listeners(){
     capas.forEach(capa => {
         capa.addEventListener("click", function(){
             let item_number_atual = capa.getAttribute("data-index");
-            let book_key = document.getElementById(`key${item_number_atual}`).innerText;
-            book_key = book_key.substring(book_key.lastIndexOf("/")+1);
-            localStorage.setItem("livro_key", book_key);
+            console.log(todos_livros.docs)
+            localStorage.setItem("livro_escolhido", JSON.stringify(todos_livros.docs[item_number_atual]));
             window.location.href = "sobre.html";
         })
     })
@@ -73,12 +68,13 @@ async function pesquisar_livro(){
         url_tipo_pesquisa = "?q=";
     }
 
-    await fetch(`${url}${url_tipo_pesquisa}${campo_pesquisa.value}&fields=key,title,author_name,publisher,cover_edition_key,cover_i,first_publish_year`)
+    await fetch(`${url}${url_tipo_pesquisa}${campo_pesquisa.value}&fields=key,title,author_name,publisher,cover_edition_key,cover_i,first_publish_year,number_of_pages_median`)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
+            todos_livros = response;
             section_resultados.innerHTML = "";
-            mostrar_livros(response.docs);
+            console.log(todos_livros.docs);
+            mostrar_livros(todos_livros.docs);
             adicionar_event_listeners();
         });
 }
@@ -97,7 +93,7 @@ function pesquisar_livros(){
 
 }
 
-async function adicionar_para_ler(keyLivro){
+/* async function adicionar_para_ler(keyLivro){
     let livroEscolhido;
 
     await fetch(`https://openlibrary.org${keyLivro}.json`)
@@ -120,4 +116,4 @@ async function adicionar_para_ler(keyLivro){
   "idCapa" : "MT1",
   "apiOrigem" : "PBL"})
     })
-}
+} */
