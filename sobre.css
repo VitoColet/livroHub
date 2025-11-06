@@ -1,3 +1,90 @@
-h1 {
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Caslon+Display&family=Special+Gothic:wght@400..700&display=swap');
+*{
+    font-family: "Merriweather", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+:root{
+    --background-color: rgb(255, 247, 239);
+    --cor-linha: rgba(252, 228, 214, 0.483);
+    --cor-borda: rgba(215, 184, 163, 0.233);
+    --cor-borda2: rgba(212, 212, 212, 0.432);
+    --cor-navbar: rgb(255, 241, 232);
+    --cor-botao-hover: rgb(252, 228, 214);
+}
+
+h1, h2, h3{
+   margin: 10px; 
+}
+
+h1{
+    font-weight: 300;
+}
+
+h2 {
     font-weight: 100;
+    font-size: 1em;
+}
+
+h3{
+    font-style: italic;
+    font-weight: 100;
+    font-size: .7em;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.container-sobre{
+    width: 1400px;
+    height: 800px;
+    background-color: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: .5em;
+}
+
+.container-infos{
+    background-color: white;
+    margin: 1.5em 0 0 1.5em;
+    display: flex;
+    gap: 1em;
+}
+
+.container-img-livro{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--cor-borda2);
+    padding: 2.5em 2.5em;
+    gap:.5em;
+    border-radius: .5em;
+    
+}
+
+div.info-texto{
+    border: 1px solid var(--cor-borda2);
+    border-radius: .5em;
+}
+
+.container-img-livro img{
+
+        box-shadow: 1px 1px 10px 1px rgba(187, 187, 187, 0.697),
+        -1px -1px 10px 1px rgba(221, 221, 221, 0.697);
+        border-radius: 0.3em;
+       
+}
+
+.container-img-livro button{
+    height: 3em;
+}
+
+.add-button{
+    background-color: rgb(223, 209, 192);
 }
