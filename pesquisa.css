@@ -33,6 +33,7 @@ hr{
     display: flex;
     height: 3em;
     justify-content: center;
+    align-items: center;
     background-color: var(--background-color);
     box-shadow: 1px 1px 20px 1px rgba(187, 187, 187, 0.697);
     border-radius: 0.25em;
@@ -64,7 +65,7 @@ hr{
     display: flex;
 }
 .nav_bar_elements a:hover {
-    background-color: var(--background-color-hover);
+    text-decoration: underline;
     
 }
 

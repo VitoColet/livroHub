@@ -93,27 +93,3 @@ function pesquisar_livros(){
 
 }
 
-/* async function adicionar_para_ler(keyLivro){
-    let livroEscolhido;
-
-    await fetch(`https://openlibrary.org${keyLivro}.json`)
-        .then(response => response.json())
-        .then(response => livroEscolhido = response);
-
-        console.log(livroEscolhido);
-        console.log(livroEscolhido.title);
-
-    await fetch(`http://localhost:8123/livros`, {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json"
-        },
-        body: JSON.stringify({"keyLivro" : "1",
- "titulo" : "Metamorfoses",
- "autor": "Ovidio",
- "editora": "Penguin",
- "anoLancamento": 2023,
-  "idCapa" : "MT1",
-  "apiOrigem" : "PBL"})
-    })
-} */
