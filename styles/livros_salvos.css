@@ -1,0 +1,22 @@
+
+
+.container-livros{
+    width: 1200px;
+    height: 800px;
+    background-color: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: .5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.livro_salvo{
+    padding:.5em;
+}
+
+.img-livro-salvo{
+    width: 100px;
+    height: 140px;
+    box-shadow: 1px 1px px 1px rgba(128, 128, 128, 0.604);
+}

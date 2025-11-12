@@ -64,6 +64,9 @@ function carregar_infos() {
     containerInfoTexto.insertAdjacentHTML("afterbegin", `
             <h1>${livro.title}</h1>
             <h2>De:${livro.author_name}</h2>
+            <h2>Editora:${livro.publisher}</h2>
+            <hr>
+            <textarea>
         `)
 
 }

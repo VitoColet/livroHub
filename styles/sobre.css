@@ -71,6 +71,7 @@ main{
 div.info-texto{
     border: 1px solid var(--cor-borda2);
     border-radius: .5em;
+    width: 100%;
 }
 
 .container-img-livro img{
@@ -78,6 +79,8 @@ div.info-texto{
         box-shadow: 1px 1px 10px 1px rgba(187, 187, 187, 0.697),
         -1px -1px 10px 1px rgba(221, 221, 221, 0.697);
         border-radius: 0.3em;
+        width: 348px;
+        height: 500px;
        
 }
 
@@ -86,5 +89,5 @@ div.info-texto{
 }
 
 .botao-status.ativo{
-    background-color: red;
+    background-color: rgb(255, 102, 0);
 }
