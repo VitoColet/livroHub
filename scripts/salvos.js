@@ -1,10 +1,15 @@
 const urlAPI = `http://localhost:8123/`;
 const urlCover = "https://covers.openlibrary.org/b/id/";
-const idUsuario = 1;
+const idUsuario = localStorage.getItem("idUsuario");
 const div_livros = document.querySelector(".container-livros");
 const statusPagina = document.body.dataset.status;
 let todos_livros = '';
 
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        location.reload();
+    }
+});
 function getLivros(){
 
     fetch(`${urlAPI}usuario_livro/todos?id=${idUsuario}&statusLivro=${statusPagina}`)

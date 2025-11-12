@@ -81,13 +81,84 @@ div.info-texto{
         border-radius: 0.3em;
         width: 348px;
         height: 500px;
+        transition: 200ms ease;
        
+}
+
+.container-img-livro img:hover{
+    scale: 1.01;
 }
 
 .container-img-livro button{
     height: 3em;
 }
 
+.botao-status:hover{
+    background-color: rgb(252, 228, 214);
+}
+
 .botao-status.ativo{
-    background-color: rgb(255, 102, 0);
+    background-color: rgb(255, 129, 45);
+    transition: 200ms ease;
+}
+.botao-status.ativo:hover{
+    background-color: rgb(209, 102, 31);
+}
+
+textarea{
+    width: 90%;
+    height: 200px;
+}
+
+.card-titulo{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.01em;
+}
+
+.info-texto{
+    display: flex;
+    flex-direction: column;
+}
+
+.info-texto hr{
+    border: 0.01em solid var(--cor-borda2);
+    border-radius: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.container-review{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea{
+    margin-top: 2em;
+    border: 2px solid var(--cor-borda2);
+    border-radius: 5px;
+     resize: none;
+}
+
+.titulo-nota{
+    align-self: flex-start;
+    margin-left: 2.1em;
+    margin-top: 1em;
+}
+
+.titulo-nota input[type="number"]{
+    width: 50px;
+}
+
+#botao-review{
+    align-self: flex-start;
+    margin-left: 2.5em;
+    margin-top: 1em;
+    transition: 200ms ease;
+}
+
+#botao-review:hover{
+    background-color: var(--cor-botao-hover);
 }

@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar na conta</title>
+    <title>Login - LivroHub</title>
     <link rel="stylesheet" href="styles/login.css">
 </head>
 <body>
-    <div class="container">
+    <main>
         <div class="container-login">
-            <label for="email-usuario">Email:</label>
-            <input type="text" name="email-usuario" id="email-usuario" placeholder="email" required>
-            <label for="senha-usuario">Senha</label>
-            <input type="password" name="senha-usuario" id="senha-usuario" placeholder="senha" required>
-            <button class="botao" id="botao-login">Login</button>
-            <button class="botao" id="botao-cadastro">Ainda não tenho uma conta</button>
+            <div class="form-box">
+                <h1 id="titulo-form">Entrar</h1>
+                <form id="form-login">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Senha" required>
+                    <button type="submit">Entrar</button>
+                </form>
+                <form id="form-cadastro" class="hidden">
+                    <input type="text" placeholder="Nome completo" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Senha" required>
+                    <input type="date" required>
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <p id="alternar">Não tem conta? <span id="link-cadastro">Cadastre-se</span></p>
+            </div>
         </div>
-    </div>
+    </main>
     <script src="scripts/login.js"></script>
 </body>
 </html>

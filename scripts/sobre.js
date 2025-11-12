@@ -3,10 +3,14 @@ livro = JSON.parse(livro);
 const url = "https://openlibrary.org/books/";
 const urlCover = "https://covers.openlibrary.org/b/id/";
 const urlAPI = "http://localhost:8123/";
-const idUsuario = 1;
+const idUsuario = localStorage.getItem("idUsuario");
 const container = document.querySelector("div.container-sobre");
 const containerImgLivros = document.querySelector(".container-img-livro");
 const containerInfoTexto = document.querySelector(".info-texto");
+const botaoReview = document.getElementById("botao-review");
+const campo_texto = document.getElementById("review-texto");
+const campo_titulo = document.getElementById("titulo-review");
+const notaLivro = document.getElementById("nota-review");
 const dadosJson = JSON.stringify({
                     keyLivro: livro.key,
                     titulo: livro.title,
@@ -19,6 +23,64 @@ const dadosJson = JSON.stringify({
 
 // https://covers.openlibrary.org/b/id/12547191-L.jpg
 // response.authors[0].author.key
+
+console.log(idUsuario);
+
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        location.reload();
+    }
+});
+
+
+
+botaoReview.addEventListener("click", function(){
+
+    if (!verificar_review_vazia()){
+
+        const botaoLidos = document.querySelector(".botao-status");
+        
+        if (botaoLidos.classList.contains("ativo") == false){
+            botaoLidos.click();
+        }
+        
+        fetch(`http://localhost:8123/avaliacoes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "usuarioId": idUsuario,
+                "keyLivro" : livro.key,
+                "tituloAvaliacao" : campo_titulo.value,
+                "textoAvaliacao" : campo_texto.value,
+                "notaLivro" : notaLivro.value
+            })
+        });
+    }
+    else{
+        alert("Preencha todos os campos da Avaliação.");
+    }
+    })
+    
+function verificar_review_vazia(){
+    
+
+    return (campo_texto.value.trim() === '' || campo_titulo.value.trim() === '' || notaLivro.value === '');
+   
+}
+
+function verificar_existe_review(){
+
+    fetch(`http://localhost:8123/avaliacoes?id_usuario=${idUsuario}&keyLivro=${livro.key}`)
+        .then(response => response.json())
+        .then(response => {
+            campo_titulo.value = response.tituloAvaliacao;
+            campo_texto.value = response.textoAvaliacao;
+            notaLivro.value = response.notaLivro;
+        })
+
+}
 
 async function verificar_livro_adicionado(){
     let statusBotaoLidos = false;
@@ -62,11 +124,16 @@ function carregar_infos() {
         <img src="${urlCover}${livro.cover_i}-L.jpg">
         `)
     containerInfoTexto.insertAdjacentHTML("afterbegin", `
-            <h1>${livro.title}</h1>
-            <h2>De:${livro.author_name}</h2>
-            <h2>Editora:${livro.publisher}</h2>
+            <div class="card-titulo">
+                <h1>${livro.title}</h1>
+                <div class="autor-editora">
+                    <h2>De:${livro.author_name}</h2>
+                    <h2>Editora:${livro.publisher}</h2>
+                </div>
+                
+            </div>
             <hr>
-            <textarea>
+
         `)
 
 }
@@ -192,10 +259,21 @@ function deleteLivroUsuario(status){
                     id_usuario:idUsuario
                 })
             })
+
+            fetch(`${urlAPI}avaliacoes?id_usuario=${idUsuario}&keyLivro=${livro.key}`, {
+                method: "DELETE"
+            })
+                .then(response => {
+                    if (response.ok){
+                        console.log("Avaliacao apagada");
+                    }
+                })
+                
             break;
         }
     }
 }
 
 verificar_livro_adicionado();
+verificar_existe_review();
 carregar_infos();

@@ -5,6 +5,12 @@ const campo_pesquisa = document.getElementById("pesquisa-livro");
 const url = "https://openlibrary.org/search.json";
 let todos_livros = [];
 
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        location.reload();
+    }
+});
+
 botao_pesquisa.addEventListener("click", function(){
     pesquisar_livros();
 });

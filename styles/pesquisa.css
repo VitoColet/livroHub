@@ -42,6 +42,7 @@ hr{
 }
 
 .nav_bar_elements li {
+    display: flex;
     list-style-type: none;
     height: 100%;
 }

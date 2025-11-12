@@ -1,22 +1,28 @@
-
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .container-livros{
-    width: 1200px;
-    height: 800px;
+    width: 50%;
+    min-height: 750px;
     background-color: white;
     border: 1px solid var(--cor-borda);
     border-radius: .5em;
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 0.3em 0.5em;
+    padding: 0.5em;
 }
 
 .livro_salvo{
     padding:.5em;
+    height: max-content;
 }
 
-.img-livro-salvo{
-    width: 100px;
-    height: 140px;
-    box-shadow: 1px 1px px 1px rgba(128, 128, 128, 0.604);
+h1{
+    font-weight: 300;
 }
