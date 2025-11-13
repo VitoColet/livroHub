@@ -44,7 +44,7 @@ main{
 
 .container-sobre{
     width: 1200px;
-    height: 800px;
+    height: 1000px;
     background-color: white;
     border: 1px solid var(--cor-borda);
     border-radius: .5em;

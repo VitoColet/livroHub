@@ -118,10 +118,17 @@ async function verificar_livro_adicionado(){
 
 function carregar_infos() {
     
-    console.log(livro)
+    if (livro.cover_i === undefined){
+        imagem = "./resources/imagem-gerenica.jpg"
+    }
+    else{
+        imagem = `${urlCover}${livro.cover_i}-L.jpg`
+    }
 
+    console.log(livro)
+   
     containerImgLivros.insertAdjacentHTML("afterbegin", `
-        <img src="${urlCover}${livro.cover_i}-L.jpg">
+        <img src="${imagem}">
         `)
     containerInfoTexto.insertAdjacentHTML("afterbegin", `
             <div class="card-titulo">
